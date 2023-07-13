@@ -1,14 +1,22 @@
 version: "3"
 services:
   postgres:
-    container_name: gin-postgresql
+    container_name: django-postgresql
     image: postgres:latest
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: go_gin_api_db
+      POSTGRES_DB: django_db
     volumes:
       - ./data:/var/lib/postgresql/data
     ports:
       - 5432:5432
+
+  web:
+    container_name: django-web
+    build: .
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
