@@ -1,6 +1,8 @@
 package initializers
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type db_data struct {
 	Host string

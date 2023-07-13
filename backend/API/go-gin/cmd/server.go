@@ -3,6 +3,7 @@ package main
 import (
 	"gin/api/api"
 	"gin/api/api/controllers"
+	"gin/api/internal"
 	"gin/api/internal/initializers"
 
 	"github.com/gin-gonic/gin"
@@ -11,12 +12,18 @@ import (
 // Everything called from "initializers" package should be located in --> /internal/initializers/*.go
 
 func main() {
-  api.Migrate() // Migrations are run from --> /api/migrations.go
+  internal.OpenConnection()
 
-  r := gin.Default()
-  r.Use(initializers.Cors)
+  if (internal.DB == nil) {
+    panic("Database connection was NOT successfully set!")
+  } else {  
+    api.Migrate() // Migrations are run from --> /api/migrations.go
 
-  controllers.AttachControllers(r) // Controller attachments are defined in --> /api/controllers.go
-  
-  r.Run(initializers.Hostname)
+    r := gin.Default()
+    r.Use(initializers.Cors)
+
+    controllers.AttachControllers(r) // Controller attachments are defined in --> /api/controllers/controllers.go
+    
+    r.Run(initializers.Hostname)
+  }
 }
