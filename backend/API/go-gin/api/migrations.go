@@ -2,6 +2,7 @@ package api
 
 import (
 	"gin/api/api/models"
+	"gin/api/internal/initializers"
 
 	_ "github.com/lib/pq"
 	"gorm.io/driver/postgres"
@@ -9,7 +10,7 @@ import (
 )
 
 func Migrate() {
-	dsn := "user=postgres password=postgres dbname=go_gin_api_db host=localhost port=5432 sslmode=disable"
+	dsn := initializers.DataAsDSN(initializers.DB_Data)
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	
 	if err != nil {

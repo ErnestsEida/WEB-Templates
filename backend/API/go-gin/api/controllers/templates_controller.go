@@ -6,18 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func TemplateAttachments() []Attachment {
-	var returnArray []Attachment
-
-	returnArray = append(returnArray, Attachment{
-		Method: "GET",
-		Handler: PathHandler{
-			Path: "/",
-			Function:  handleHome(),
-		},
-	})
-
-	return returnArray
+func TemplateAttachments() []ControllerAttachment {
+	return []ControllerAttachment{
+		{ Method: "GET", Path: "/", Handler: handleHome() },
+	}
 }
 
 func handleHome() gin.HandlerFunc {
