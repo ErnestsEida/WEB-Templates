@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  user: postgres
+  password: postgres
+  host: railsAPI-postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: RailsAPI_development
+
+test:
+  <<: *default
+  database: RailsAPI_test
+
+production:
+  <<: *default
+  database: RailsAPI_production
+  username: RailsAPI
+  password: <%= ENV["RAILSAPI_DATABASE_PASSWORD"] %>
