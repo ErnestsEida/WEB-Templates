@@ -4,32 +4,26 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// the method you add to attach controllers to paths, etc. Should return a map that follows this syntax:
-// Syntax for attachment passing, you can see the example in --> templates_controller.go
-// Example: ControllerAttachment{ Method: "GET", Path: "/", Handler: myFunction() }
+// This is a ready file for usage, that handles controller attaching to gin engine
+// You attach your controller methods by adding your method that returns "gin.HandlerFunc", using the ControllerMethod struct (see template for example)
 
-var engine *gin.Engine
-
-func AttachControllers(r *gin.Engine) {
-	engine = r 		// DO NOT REMOVE
-	// ============================
-
-	// ATTACHMENT BLOCK
-
-	attach(TemplateAttachments())
-	
-	// END OF BLOCK
-}
-
-// Auto attachment functionality below
-
-type ControllerAttachment struct {
+type ControllerMethod struct {
 	Method string
 	Path string
 	Handler gin.HandlerFunc
 }
 
-func attach(methods []ControllerAttachment) {
+var ControllerMethods []ControllerMethod
+var engine *gin.Engine
+
+func AttachControllers(r *gin.Engine) {
+	engine = r 		// DO NOT REMOVE
+	ProcessControllerMethods()
+}
+
+// Auto attachment functionality below
+func ProcessControllerMethods() {
+	methods := ControllerMethods
 	for i := 0; i < len(methods); i++ {
 		if (methods[i].Method == "GET") {
 			engine.GET(methods[i].Path, methods[i].Handler)

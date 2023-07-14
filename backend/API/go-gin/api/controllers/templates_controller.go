@@ -6,10 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func TemplateAttachments() []ControllerAttachment {
-	return []ControllerAttachment{
-		{ Method: "GET", Path: "/", Handler: handleHome() },
-	}
+func init() {
+	ControllerMethods = append(ControllerMethods, 
+		ControllerMethod{ Path: "/", Method: "GET", Handler: handleHome()},
+	)
 }
 
 func handleHome() gin.HandlerFunc {
