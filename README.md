@@ -8,13 +8,13 @@ ___
 ### Table of contents
 - Backend
   - API
-    - Go-Gin
-    - Rails API
+    - [Go-Gin](https://github.com/ErnestsEida/WEB-Templates/tree/master/backend/API/go-gin)
+    - [Rails API](https://github.com/ErnestsEida/WEB-Templates/tree/master/backend/API/RailsAPI)
   - MVC
-    - Django
-    - Rails MVC
+    - [Django](https://github.com/ErnestsEida/WEB-Templates/tree/master/backend/MVC/Django)
+    - [Rails MVC](https://github.com/ErnestsEida/WEB-Templates/tree/master/backend/MVC/RailsMVC)
 
 - Frontend
-  - Nuxt3
-  - Vue3
-  - React
+  - [Nuxt3](https://github.com/ErnestsEida/WEB-Templates/tree/master/frontend/Nuxt3/app)
+  - [Vue3](https://github.com/ErnestsEida/WEB-Templates/tree/master/frontend/Vue3/vue-project)
+  - [React](https://github.com/ErnestsEida/WEB-Templates/tree/master/frontend/React/app)
