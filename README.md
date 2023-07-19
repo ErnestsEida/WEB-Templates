@@ -20,3 +20,5 @@ ___
   - [Nuxt3](https://github.com/ErnestsEida/WEB-Templates/tree/master/frontend/Nuxt3/app)
   - [Vue3](https://github.com/ErnestsEida/WEB-Templates/tree/master/frontend/Vue3/vue-project)
   - [React](https://github.com/ErnestsEida/WEB-Templates/tree/master/frontend/React/app)
+  - [NextJS](https://github.com/ErnestsEida/WEB-Templates/tree/master/frontend/NextJS/app)
+  - [Angular](https://github.com/ErnestsEida/WEB-Templates/tree/master/frontend/AngularJS)
